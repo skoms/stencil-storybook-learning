@@ -7,9 +7,10 @@ import { Component, ComponentInterface, h, Host, Prop } from '@stencil/core';
 })
 export class MyComponent implements ComponentInterface {
   @Prop() first?: string;
+  @Prop() middle?: string;
   @Prop() last?: string;
 
   render() {
-    return <Host>{`Hello, my name is ${this.first} ${this.last}`}</Host>;
+    return <Host>{`Hello, my name is ${this.first}${this.middle ? ' ' + this.middle : ''} ${this.last}`}</Host>;
   }
 }

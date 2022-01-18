@@ -6,27 +6,50 @@
  */
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 export namespace Components {
+  interface MyButton {
+    buttonType?: 'primary' | 'secondary' | 'warning';
+    disabled?: boolean;
+    elevated?: boolean;
+    shape?: 'round' | 'smooth' | 'sharp';
+    size?: 'large' | 'medium' | 'small';
+  }
   interface MyComponent {
     first?: string;
     last?: string;
+    middle?: string;
   }
 }
 declare global {
+  interface HTMLMyButtonElement extends Components.MyButton, HTMLStencilElement {}
+  var HTMLMyButtonElement: {
+    prototype: HTMLMyButtonElement;
+    new (): HTMLMyButtonElement;
+  };
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
     prototype: HTMLMyComponentElement;
     new (): HTMLMyComponentElement;
   };
   interface HTMLElementTagNameMap {
+    'my-button': HTMLMyButtonElement;
     'my-component': HTMLMyComponentElement;
   }
 }
 declare namespace LocalJSX {
+  interface MyButton {
+    buttonType?: 'primary' | 'secondary' | 'warning';
+    disabled?: boolean;
+    elevated?: boolean;
+    shape?: 'round' | 'smooth' | 'sharp';
+    size?: 'large' | 'medium' | 'small';
+  }
   interface MyComponent {
     first?: string;
     last?: string;
+    middle?: string;
   }
   interface IntrinsicElements {
+    'my-button': MyButton;
     'my-component': MyComponent;
   }
 }
@@ -34,6 +57,7 @@ export { LocalJSX as JSX };
 declare module '@stencil/core' {
   export namespace JSX {
     interface IntrinsicElements {
+      'my-button': LocalJSX.MyButton & JSXBase.HTMLAttributes<HTMLMyButtonElement>;
       'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
     }
   }

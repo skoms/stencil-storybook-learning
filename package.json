@@ -9,6 +9,8 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@storybook/addons": "^6.4.13",
+    "@storybook/theming": "^6.4.13",
     "husky": "7.0.2"
   }
 }
