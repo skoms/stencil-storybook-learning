@@ -6,8 +6,10 @@ button {
   color: white;
   background-color: rgb(2, 84, 190);
   transition: all ease-in-out 0.2s;
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: rgb(2, 104, 238);
+    outline: none;
     cursor: pointer;
   }
 
@@ -15,22 +17,28 @@ button {
   &.primary {
     background-color: rgb(2, 84, 190);
     border: none;
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: rgb(2, 104, 238);
+      outline: none;
     }
   }
   &.secondary {
     background: transparent;
     border: 1px solid rgb(2, 84, 190);
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: rgb(2, 104, 238);
+      outline: none;
     }
   }
   &.warning {
     background-color: red;
     border: none;
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: rgb(253, 81, 81);
+      outline: none;
     }
   }
 

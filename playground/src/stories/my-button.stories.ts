@@ -5,6 +5,21 @@ import { MyButton } from '../../../design-system/src/components/my-button/my-but
 
 export default {
   title: 'My Button',
+  argTypes: {
+    onClick: { action: 'clicked' },
+    buttonType: {
+      options: ['primary', 'secondary', 'warning'],
+      control: { type: 'inline-radio' },
+    },
+    size: {
+      options: ['large', 'medium', 'small'],
+      control: { type: 'inline-radio' },
+    },
+    shape: {
+      options: ['round', 'smooth', 'sharp'],
+      control: { type: 'inline-radio' },
+    },
+  },
 } as Meta;
 
 const Template: Story<MyButton> = ({ buttonType = 'primary', size = 'medium', shape = 'smooth', disabled = false, elevated = false }) => {
@@ -14,6 +29,13 @@ const Template: Story<MyButton> = ({ buttonType = 'primary', size = 'medium', sh
 };
 
 export const Default: Story<MyButton> = Template.bind({});
+Default.args = {
+  buttonType: 'primary',
+  size: 'medium',
+  shape: 'smooth',
+  disabled: false,
+  elevated: false,
+};
 
 export const Primary: Story<MyButton> = Template.bind({});
 Primary.args = {
